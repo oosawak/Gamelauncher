@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GAME LAUNCHER - クールな紹介ページ</title>
+  <style>
+    body {
+      margin: 0; padding: 0;
+      background: linear-gradient(135deg, #181828 0%, #232344 100%);
+      color: #e0e0e0;
+      font-family: 'Segoe UI', 'Meiryo', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .hero {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      min-height: 60vh;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-title {
+      font-size: 2.8rem;
+      font-weight: bold;
+      color: #00e6ff;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5em;
+      animation: fadeInDown 1s cubic-bezier(.77,0,.18,1) 0.2s both;
+    }
+    .hero-sub {
+      font-size: 1.3rem;
+      color: #fff;
+      margin-bottom: 1.5em;
+      animation: fadeInUp 1s cubic-bezier(.77,0,.18,1) 0.7s both;
+    }
+    .github-btn {
+      display: inline-block;
+      background: #00e6ff;
+      color: #181828;
+      font-weight: bold;
+      padding: 0.8em 2em;
+      border-radius: 32px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 16px #00e6ff44;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      animation: fadeIn 1.2s cubic-bezier(.77,0,.18,1) 1.2s both;
+    }
+    .github-btn:hover {
+      background: #fff;
+      color: #00e6ff;
+      transform: translateY(-2px) scale(1.04);
+    }
+    .screenshots {
+      display: flex; flex-direction: column; align-items: center;
+      margin: 48px 0 0 0;
+    }
+    .screenshot-frame {
+      width: 340px; max-width: 90vw;
+      height: 220px;
+      background: #232344;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px #0008;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      margin-bottom: 18px;
+      position: relative;
+      animation: fadeIn 1.2s cubic-bezier(.77,0,.18,1) 1.5s both;
+    }
+    .screenshot-frame img {
+      width: 100%; height: auto; object-fit: contain;
+      opacity: 0; transition: opacity 0.7s;
+      position: absolute; left: 0; top: 0;
+    }
+    .screenshot-frame img.active {
+      opacity: 1;
+      position: relative;
+      z-index: 2;
+    }
+    .screenshot-caption {
+      color: #00e6ff; font-size: 1.05rem; margin-bottom: 12px; min-height: 1.5em;
+      animation: fadeIn 1.2s cubic-bezier(.77,0,.18,1) 1.7s both;
+    }
+    .screenshot-nav {
+      display: flex; gap: 12px; justify-content: center; margin-bottom: 24px;
+    }
+    .dot {
+      width: 14px; height: 14px; border-radius: 50%; background: #444;
+      border: 2px solid #00e6ff; cursor: pointer; transition: background 0.2s;
+    }
+    .dot.active { background: #00e6ff; }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .features {
+      margin: 56px auto 0 auto; max-width: 700px; background: #232344;
+      border-radius: 12px; box-shadow: 0 4px 24px #0008; padding: 32px;
+      animation: fadeIn 1.2s cubic-bezier(.77,0,.18,1) 2s both;
+    }
+    .features h2 { color: #00e6ff; margin-top: 0; }
+    .features ul { font-size: 1.1rem; }
+    .features li { margin-bottom: 0.7em; }
+    @media (max-width: 600px) {
+      .hero-title { font-size: 2rem; }
+      .hero-sub { font-size: 1rem; }
+      .features { padding: 16px; }
+      .screenshot-frame { width: 98vw; height: 160px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="hero-title">GAME LAUNCHER</div>
+    <div class="hero-sub">Pyxel製HTMLゲームを<br>クールに管理・起動！<br><span style="color:#0ff;font-size:1.1em;">直感的・多機能・美しいUI</span></div>
+    <a class="github-btn" href="https://github.com/oosawak/Gamelauncher" target="_blank" rel="noopener">GitHubでソースを見る</a>
+  </div>
+  <div class="screenshots">
+    <div class="screenshot-caption" id="caption">ビルトインゲーム一覧</div>
+    <div class="screenshot-frame">
+      <img src="images/001.png" alt="ビルトインゲーム一覧" class="active" id="ss0">
+      <img src="images/002.png" alt="ゲーム画面" id="ss1">
+      <img src="images/003.png" alt="Gallery機能" id="ss2">
+      <img src="images/004.png" alt="Gallery作品一覧" id="ss3">
+    </div>
+    <div class="screenshot-nav">
+      <div class="dot active" onclick="showScreenshot(0)"></div>
+      <div class="dot" onclick="showScreenshot(1)"></div>
+      <div class="dot" onclick="showScreenshot(2)"></div>
+      <div class="dot" onclick="showScreenshot(3)"></div>
+    </div>
+  </div>
+  <div class="features">
+    <h2>主な特徴</h2>
+    <ul>
+      <li>ビルトインゲーム搭載（Cubeboy, GAME LAUNCHER, Lineboy）</li>
+      <li>ファイル追加・URL追加・フォルダ管理</li>
+      <li>ゲームの削除・リネーム・移動</li>
+      <li>Pyxel互換HTMLゲームに最適化</li>
+      <li>シンプルで直感的なUI</li>
+      <li>オプションでギャラリー機能も！</li>
+    </ul>
+  </div>
+  <script>
+    const captions = [
+      'ビルトインゲーム一覧',
+      'ゲーム画面',
+      'Gallery（オプション機能）',
+      'Gallery（作品一覧表示）'
+    ];
+    let current = 0;
+    function showScreenshot(idx) {
+      for(let i=0;i<4;i++) {
+        document.getElementById('ss'+i).classList.remove('active');
+        document.getElementsByClassName('dot')[i].classList.remove('active');
+      }
+      document.getElementById('ss'+idx).classList.add('active');
+      document.getElementsByClassName('dot')[idx].classList.add('active');
+      document.getElementById('caption').textContent = captions[idx];
+      current = idx;
+    }
+    // 自動スライド
+    setInterval(()=>{
+      let next = (current+1)%4;
+      showScreenshot(next);
+    }, 3500);
+  </script>
+
+    <h1>GAME LAUNCHER ポートフォリオ</h1>
+    <div class="section">
+      <h2>概要</h2>
+      <p><b>GAME LAUNCHER</b> は、Pyxel製HTMLゲームや自作ゲームを簡単に管理・起動できるFlutter製ランチャーアプリです。ビルトインゲームやユーザー追加ゲーム、フォルダ分け、削除・リネームなど多彩な管理機能を備えています。</p>
+    </div>
+    <div class="section">
+      <h2>特徴</h2>
+      <ul>
+        <li>ビルトインゲーム搭載（Cubeboy, GAME LAUNCHER, Lineboy）</li>
+        <li>ファイル追加・URL追加・フォルダ管理</li>
+        <li>ゲームの削除・リネーム・移動</li>
+        <li>シンプルで直感的なUI</li>
+        <li>Pyxel互換HTMLゲームに最適化</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>スクリーンショット</h2>
+      <h3>ビルトインゲーム一覧</h3>
+      <img src="images/001.png" alt="ビルトインゲーム一覧">
+      <h3>ゲーム画面</h3>
+      <img src="images/002.png" alt="ゲーム画面">
+      <h3>Gallery（オプション機能）</h3>
+      <img src="images/003.png" alt="Gallery機能">
+      <h3>Gallery（作品一覧表示）</h3>
+      <img src="images/004.png" alt="Gallery作品一覧">
+    </div>
+    <div class="section">
+      <h2>Gallery（ギャラリー）機能</h2>
+      <p>Pyxelユーザー作品を一覧表示できるオプション機能です。ボタン一つでギャラリー画面に遷移し、他のユーザー作品を閲覧・起動できます。</p>
+    </div>
+    <div class="section">
+      <h2>使い方</h2>
+      <ol>
+        <li>アプリを起動</li>
+        <li>「ファイルを追加」やURL入力でゲームを追加</li>
+        <li>ゲームを起動・管理</li>
+        <li>必要に応じてギャラリー機能を有効化</li>
+      </ol>
+    </div>
+    <div class="section">
+      <h2>導入方法</h2>
+      <ul>
+        <li>Flutterプロジェクトとしてビルド可能</li>
+        <li>iOS/Android/デスクトップ/Web対応（Webは一部機能制限あり）</li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>
