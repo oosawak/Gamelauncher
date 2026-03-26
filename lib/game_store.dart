@@ -11,9 +11,9 @@ class GameStore {
 
   // Built-in games (update as needed)
   static const _builtIns = [
-    {'name': 'Cubeboy (Built-in)',        'asset': 'assets/docs/Cubeboy.html'},
-    {'name': 'R.P..G...8bit (Built-in)',  'asset': 'assets/docs/R_P__G___8bit.html'},
-    {'name': 'Lineboy (Built-in)',        'asset': 'assets/docs/lineboy.html'},
+//    {'name': 'Cubeboy (Built-in)',        'asset': 'assets/docs/Cubeboy.html'},
+//    {'name': 'R.P..G...8bit (Built-in)',  'asset': 'assets/docs/R_P__G___8bit.html'},
+//    {'name': 'Lineboy (Built-in)',        'asset': 'assets/docs/lineboy.html'},
   ];
 
   // ── Paths ─────────────────────────────────────────────
